@@ -15,7 +15,7 @@ impl Blog {
             title,
             date: time(),
             content,
-            tags,
+            tags
        } 
     }
 }
