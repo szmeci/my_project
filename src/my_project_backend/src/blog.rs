@@ -11,11 +11,11 @@ pub struct Blog {
 
 impl Blog {
     pub fn new(title: String, content: String, tags: Vec<String>) -> Self {
-       Self{
+        Self {
             title,
             date: time(),
             content,
             tags
-       } 
+        }
     }
 }

@@ -10,6 +10,7 @@ thread_local! {
     static CONFIG: RefCell<Config> = RefCell::new(Config::new());
     static BLOGS: RefCell<Vec<Blog>> = RefCell::new(Vec::new());
 }
+// komentarze ?
 
 #[ic_cdk::update]
 fn add_config(new_config: Config) {
@@ -47,6 +48,11 @@ fn add_blog(title: String, content: String, tags: Vec<String>) -> Result<Blog, S
 #[ic_cdk::query]
 fn get_blogs() -> Vec<Blog> {
     BLOGS.with(|blogs| blogs.borrow().clone())
+}
+
+#[ic_cdk::query]
+fn get_config() -> Config {
+    CONFIG.with(|config| config.borrow().clone())
 }
 
 #[ic_cdk::query]
